@@ -4,14 +4,13 @@ var playerHealth = 100;
 var playerAttack = 10;
 var playerMoney = 10;
 
-// log multiple values at once
-console.log(playerName, playerAttack, playerHealth);
 
-var enemyName = "Roborto";
+var enemyNames = ["Domo", "Arigato", "Mr.Roboto"];
 var enemyHealth = 50;
 var enemyAttack = 12;
 
-var fight = function () {
+
+var fight = function (enemyNames) {
     // Alert you are starting the game
     window.alert("Welcome to Robot Gladiators!");
 
@@ -23,22 +22,22 @@ var fight = function () {
         enemyHealth = enemyHealth - playerAttack;
         // Log a resulting message to the console to know it worked
         console.log(
-            playerName + " attacked " + enemyName + ". " + enemyName + " now has" + enemyHealth + " health remaining."
+            playerName + " attacked " + enemyNames + ". " + enemyNames + " now has" + enemyHealth + " health remaining."
         );
     
         // check enemys health
         if (enemyHealth <= 0) {
-            window.alert(enemyName + " has died!");
+            window.alert(enemyNames + " has died!");
         }
         else {
-            window.alert(enemyName + " still has " + enemyHealth + " health left.")
+            window.alert(enemyNames + " still has " + enemyHealth + " health left.")
         }
         // Subtract enemyAttack from playerHealth
         playerHealth = playerHealth - enemyAttack;
         
         // Log a resulting message to the console to know it worked 
         console.log(
-            enemyName + " attacked " + playerName + ". " + playerName + " now has " + playerHealth + " health remaining."
+            enemyNames + " attacked " + playerName + ". " + playerName + " now has " + playerHealth + " health remaining."
         );
     
         // check player health
@@ -65,4 +64,7 @@ var fight = function () {
     }
 };
 
-fight();
+for (var i = 0; i < enemyNames.length; i++) {
+    fight(enemyNames[i]);
+}
+//fight();
